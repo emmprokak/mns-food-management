@@ -1,0 +1,129 @@
+<%- include('partials/header.ejs');%>
+
+    <div class="page-container">
+        <div class="content-wrap">
+            <div class="row content-wrap">
+                <div class="col-1"></div>
+                <div class="mt-4 col-sm-8  col-12 edit-container ">
+                    <div class="text-center mb-2 mt-2">
+                        <h3 class="">Items expiring soon...</h3>
+                        <hr>
+
+                        <%if(!expiringPackages.length){%>
+                            <h6 style="color: grey;">No packages will be expiring within the next 50 days</h6>
+                            <%}%>
+                    </div>
+                    <table class="table mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Package Expiration</th>
+                                <th scope="col">Expiring in</th>
+                                <th scope="col" class="view-recipes-column">Cooking Articles</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <%let count=1; for(let package of expiringPackages){%>
+                                <tr class="<%=count % 2 === 0 ? 'table-light': ''%>">
+                                    <td>
+                                        <%=count++%>
+                                    </td>
+                                    <td>
+                                        <%=package.name%>
+                                    </td>
+                                    <td>
+                                        <%=moment(package.expiration).format('MM / DD / YYYY');%>
+                                    </td>
+                                    <td>
+                                        <% let currentDate=new Date(Date.now()); let
+                                            timeDiff=package.expiration.getTime() - currentDate.getTime(); let
+                                            dayDiff=timeDiff / (1000 * 3600 * 24);%>
+
+                                            <span class="<%=dayDiff < 5? 'text-danger': ''%>">
+                                                <%=parseFloat(dayDiff).toFixed(1) %> days
+                                            </span>
+                                    </td>
+                                    <td class="view-recipes-column">
+                                        &nbsp; <a href="https://google.com/search?q=<%=package.name%> recipes "
+                                            target="_blank" rel="noopener noreferrer" class="recipe-link">View
+                                            recipes</a>
+                                    </td>
+                                </tr>
+                                <%}%>
+                                    </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-sm-2 col-12 mt-4 py-3 edit-container ">
+                    <h5>Today's Date:</h5>
+                    <hr>
+                    <p>
+                        <%=moment(Date.now()).format('MM / DD / YYYY');%>
+                    </p>
+                    <h5 class="mt-3">Edit products</h5>
+                    <hr>
+                    <ul>
+                        <% for(let product of allProducts){%>
+                            <li class="my-1">
+                                <a href="/edit-product/<%=product.id%>">
+                                    Edit <%= product.name%>
+                                </a>
+                            </li>
+                            <% }%>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-1"></div>
+                <div class="mt-2 col-sm-8 col-12 edit-container expired-list">
+                    <div class="text-center mb-2 mt-2">
+                        <h3 class="">Recently Expired Items</h3>
+                        <hr>
+                        <%if(!expiredPackages.length){%>
+                            <h6 style="color: grey;">No packages have expired in the past 15 days</h6>
+                            <%}%>
+                    </div>
+                    <table class="table mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Package Expiration</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <%let index=1; for(let package of expiredPackages){%>
+                                <tr class="<%=index % 2 === 0 ? 'table-light': ''%>">
+                                    <td>
+                                        <%=index++%>
+                                    </td>
+                                    <td>
+                                        <%=package.name%>
+                                    </td>
+                                    <td>
+                                        <span style="color: red;">
+                                            <%=moment(package.expiration).format('MM / DD / YYYY');%>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <%}%>
+                                    </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-2"></div>
+
+            </div>
+        </div>
+
+
+
+        <%- include('partials/create-new-modal.ejs');%>
+            <%- include('partials/delete-modal.ejs');%>
+                <%- include('partials/upload-file-modal.ejs');%>
+                    <%- include('partials/quick-actions.ejs');%>
+                        <%- include('partials/footer.ejs');%>
+    </div>

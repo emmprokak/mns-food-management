@@ -1,0 +1,30 @@
+<!-- modal for delete start-->
+<div class="modal fade" id="delete-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure?</h5>
+                <button type="" class="close-button" data-bs-dismiss="modal" aria-label="Close" onclick="resetURL()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                        class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                You want to delete this item permanently?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetURL()">No,
+                    go
+                    back</button>
+                <form action="/delete-item/" method="POST" onload="getCurrentURL()" onclick="getCurrentURL()"
+                    id="delete-form">
+                    <input type="submit" class="btn btn-danger" value="Yes, delete it"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal for delete end -->

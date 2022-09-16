@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <script type="text/javascript" src="/javascript/webutils.js"></script>
+    <title>Food management</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                    <path fill-rule="evenodd"
+                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                </svg>
+                &#9;Food Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            </div>
+
+        </div>
+        <div class="" style="width: 15%;">
+            <form action="/login" style="display: inline;">
+                <button class="btn btn-primary" id="login-button">Login</button>
+            </form>
+            <form action="/register" style="display: inline;">
+                <button class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </nav>
+
+    <%- include('partials/flash-message.ejs');%>
+
+
+        <div class="text-center my-5">
+            <h2>Welcome to the Food Management System!</h2>
+        </div>
+
+        <div class="mt-5 text-center">
+            <h4 class="user-account-header">Enter credentials to login</h4>
+        </div>
+        <div class="row mt-1">
+            <div class="col-3 "></div>
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+                <form action="/login" method="POST" class="login-form-container needs-validation">
+                    <div class="mb-3">
+                        <label class="form-label" for="username">
+                            Username
+                            <span class="required-asterisk">*</span>
+                        </label>
+                        <input class="form-control" type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="password">
+                            Password
+                            <span class="required-asterisk">*</span>
+                        </label>
+                        <input class="form-control" type="password" id="password" name="password" required>
+                    </div>
+                    <div class="text-end">
+                        <button class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-3 "></div>
+
+            <div class="mt-3 row">
+                <div class="col-3">
+                </div>
+
+                <div class="col-6 text-center">
+                    <%if(errorMessage !==null || errorMessage !==undefined){%>
+                        <h5 style="color:red;">
+
+                            <%=errorMessage%>
+                        </h5>
+
+                        <%}%>
+                </div>
+
+
+                <div class="col-3"></div>
+
+            </div>
+        </div>
+
+        <footer class="py-3 mt-auto">
+            <div>
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3 footer-list">
+                </ul>
+                <div class="ml-2">
+                    <p class="text-center">Made by yours truly</p>
+                    <p class="text-center">
+                        © <%const date=new Date(); const result=date.getFullYear();%>
+                            <%=result%> Prokakis
+                                Emmanouil</p>
+                    </p>
+                </div>
+            </div>
+        </footer>
+</body>

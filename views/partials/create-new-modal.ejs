@@ -1,0 +1,129 @@
+<!-- Modal for create new-->
+<div class="modal fade" id="new-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create a new item in the
+                    catalog</h5>
+                <button type="" class="close-button" data-bs-dismiss="modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                        class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form action="/create-new-product" method="POST" class="row justify-content-center"
+                    enctype="application/json">
+                    <div class="col-10 justify-content-center">
+                        <label for="productName" class="">Product Name:</label>
+                        <input type="text" id="productName" name="productName" value="" class="form-control" required>
+                        <label for="productQuantity" class=" mt-2">Quantity:</label>
+                        <input type="number" id="productQuantity" name="productQuantity" value="0" min="0" max="1000"
+                            onfocus="this.value=''" class="form-control">
+
+                        <label for="category-selection" class="mt-4 mb-1">Category Selection:</label>
+                        <div class="row" id="category-selection">
+                            <div class="col-10 col-sm-6">
+
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="essential"
+                                            aria-label="..." name="essential" id="essential">
+                                        <label for="essential">Essential</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="vegetables"
+                                            aria-label="..." name="vegetables" id="vegetables">
+                                        <label for="vegetables">Vegetables</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="fruit" name="fruit"
+                                            aria-label="..." id="fruit">
+                                        <label for="fruit">Fruit</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="meat" name="meat"
+                                            aria-label="..." id="meat">
+                                        <label for="meat">Meat</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="dairy" name="dairy"
+                                            aria-label="..." id="dairy">
+                                        <label for="dairy">Dairy</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-10 col-sm-6">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="frozen"
+                                            name="frozen" aria-label="..." id="frozen">
+                                        <label for="frozen">Frozen</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="fresh" name="fresh"
+                                            aria-label="..." id="fresh">
+                                        <label for="fresh">Fresh</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="luxury"
+                                            name="luxury" aria-label="..." id="luxury">
+                                        <label for="luxury">Luxury</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="candy" name="candy"
+                                            aria-label="..." id="candy">
+                                        <label for="candy">Candy</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="healthy"
+                                            name="healthy" aria-label="..." id="healthy">
+                                        <label for="healthy">Healthy</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row d-flex justify-content-start mt-4 mb-1">
+
+                            <label for="image-selection" class="mt-2 mb-1">Select Product Image:</label>
+                            <div class="row d-flex-row mb-2 px-0 file-selector-container justify-content-start d-flex-wrap"
+                                id="image-selection">
+                                <% let index=0; for(let file of fileList){%>
+
+                                    <div class="col px-0 image-div">
+                                        <input type="radio" id="<%=file%>" style="display: none;" name="imageChoice"
+                                            value="<%=file%>" />
+                                        <label for="<%=file%>" class="label-select"><img src="/images/<%=file%>" alt=""
+                                                class="mini-image"></label>
+
+                                    </div>
+                                    <%index++;%>
+
+                                        <%if(index===3){%>
+                                            <!-- wrap to next line -->
+                                            <div class="w-100"></div>
+                                            <%index=0;%>
+                                                <%}%>
+                                                    <%}%>
+                            </div>
+                        </div>
+
+
+                        <div style="text-align: end;" class="mt-4 ml-2">
+                            <input type="submit" value="Create Product" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal for create new end -->

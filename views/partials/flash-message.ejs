@@ -1,0 +1,31 @@
+<% if(success && success.length) {%>
+    <div class="alert alert-secondary alert-dismissible fade show text-center mx-auto mt-2" role="alert"
+        style="border-radius: 10px;">
+        <%= success %>
+            <button type="" class="close-button"
+                style="background-color: rgb(226,227,229) !important; position: absolute; top: 0; right: 0; z-index: 2; margin: 12px 10px;"
+                data-bs-dismiss="alert" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                </svg>
+            </button>
+    </div>
+    <% } %>
+
+        <% if(error && error.length) {%>
+            <div class="alert alert-danger alert-dismissible fade show text-center mx-auto mt-2" role="alert"
+                style="width: 50%; border-radius: 10px;">
+                <%= error %>
+                    <button type="" class="close-button"
+                        style="background-color: rgb(243,216,218) !important; margin-left: 10px;"
+                        data-bs-dismiss="alert" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                            class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                        </svg>
+                    </button>
+            </div>
+            <% } %>

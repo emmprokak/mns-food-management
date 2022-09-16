@@ -1,0 +1,134 @@
+<!-- quick actions test start -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Quick Action Global Menu</h5>
+        <button type="" class="close-button" data-bs-dismiss="offcanvas" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg>
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="my-2">
+            <h4>Welcome back <%=username%>!
+            </h4>
+            <hr>
+        </div>
+
+        <div>
+            Add a new Product to the Catalog or quick access one of the existing ones.
+        </div>
+        <div class="mt-3">
+            <ul>
+                <li>
+                    <button class="btn btn-primary my-2" type="button" id="dropdownMenuButton" data-bs-toggle="modal"
+                        data-bs-target="#new-modal">
+                        Add a new Item
+                    </button>
+                </li>
+                <li>
+                    <div class="quick-actions-edit-list">
+                        <h4>Quick Edit Product List</h4>
+                        <ul>
+                            <%for(let product of allProducts){%>
+                                <li class="quick-li">
+                                    <%=product.name%> &rarr;
+
+                                        <a href="/edit-product/<%=product.id%>">
+                                            edit
+                                        </a>
+
+                                </li>
+                                <%}%>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <!-- change theme pref -->
+                    <h4>Change User Theme</h4>
+                    <div class="row">
+                        <form action="/user/change-theme/" method="POST">
+                            <div class="row">
+                                <div class="col-2">
+                                    <input type="radio" id="colorBlue" name="colourTheme" value="rgb(49, 108, 244)"
+                                        class="color-radio" onclick="enableApplyThemeButton()">
+                                    <label for="colorBlue">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" style="fill: blue;" class="bi bi-circle-fill"
+                                            viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="8" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" id="colorRed" name="colourTheme" value="#d50303"
+                                        class="color-radio" onclick="enableApplyThemeButton()">
+                                    <label for="colorRed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" style="fill: red;" class="bi bi-circle-fill"
+                                            viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="8" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" id="colorPurple" name="colourTheme" value="purple"
+                                        class="color-radio" onclick="enableApplyThemeButton()">
+                                    <label for="colorPurple">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" style="fill: purple;" class="bi bi-circle-fill"
+                                            viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="8" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" id="colorTeal" name="colourTheme" value="teal"
+                                        class="color-radio" onclick="enableApplyThemeButton()">
+                                    <label for="colorTeal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" style="fill: teal;" class="bi bi-circle-fill"
+                                            viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="8" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" id="colorBrown" name="colourTheme" value="brown"
+                                        class="color-radio" onclick="enableApplyThemeButton()">
+                                    <label for="colorBrown">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" style="fill: brown;" class="bi bi-circle-fill"
+                                            viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="8" />
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" id="colorGold" name="colourTheme" value="rgb(206, 134, 0)"
+                                        class="color-radio" onclick="enableApplyThemeButton()">
+                                    <label for="colorGold">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" style="fill: rgb(206, 134, 0);"
+                                            class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="8" />
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-4">
+                                <button class="btn btn-primary" disabled id="apply-theme">
+                                    Apply Theme
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<!-- quick actions test end -->

@@ -1,0 +1,461 @@
+:root {
+    --accentColor: rgb(49, 108, 244);
+}
+
+body {
+    background-color: whitesmoke;
+    padding: 0 30px;
+    padding-bottom: 150px;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    padding-bottom: 2.5rem;
+    /* Footer height */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 96%;
+    height: 2.5rem;
+    /* Footer height */
+}
+
+.btn-primary {
+    background-color: var(--accentColor, rgb(49, 108, 244)) !important;
+}
+
+.badge {
+    background-color: var(--accentColor, rgb(49, 108, 244)) !important;
+}
+
+input[type='checkbox'] :checked::after {
+    background-color: var(--accentColor, rgb(49, 108, 244)) !important;
+}
+
+input[type='checkbox'] {
+    accent-color: var(--accentColor, rgb(49, 108, 244)) !important;
+}
+
+input[type='radio'] {
+    accent-color: var(--accentColor, rgb(49, 108, 244)) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--accentColor, rgb(49, 108, 244)) !important;
+    border-color: var(--accentColor, rgb(49, 108, 244)) !important;
+}
+
+.navbar {
+    background-color: whitesmoke;
+    border-bottom: 1px solid var(--accentColor, rgb(49, 108, 244));
+}
+
+.nav-link-button {
+    padding: 10px 10px;
+    background-color: rgb(251, 244, 244);
+    box-sizing: border-box;
+    text-decoration: none !important;
+}
+
+.nav-link-button:hover {
+    border-bottom: 3px solid var(--accentColor, rgb(49, 108, 244));
+    background-color: rgb(251, 244, 244);
+    text-decoration: none !important;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: var(--accentColor, rgb(49, 108, 244));
+}
+
+li {
+    list-style-type: none;
+}
+
+.item-img {
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid var(--accentColor, rgb(49, 108, 244));
+}
+
+.card {
+    border: 1px solid var(--accentColor, rgb(49, 108, 244));
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product-card-title {
+    font-size: x-large;
+}
+
+.product-card-category {
+    vertical-align: super;
+    font-size: 0.8rem;
+}
+
+.product-card-quantity {
+    color: green;
+    font-size: x-large;
+}
+
+.product-card-quantity-container {
+    border: 1px solid rgb(251, 244, 244);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.card-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    line-height: 5px;
+    /* font-size: large; */
+}
+
+.close-button {
+    transition: all 0.15s ease-in-out;
+    background-color: white;
+    border: none;
+}
+
+.close-button:hover {
+    transform: rotate(90deg);
+}
+
+#toolbar-buttons {
+    text-align: end;
+}
+
+#toolbar-add-button {
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    margin: 5px;
+    transition: all ease-out 0.35s;
+}
+
+
+#toolbar-add-button:hover {
+    z-index: 0;
+    font-weight: 500;
+    color: var(--accentColor, rgb(49, 108, 244));
+}
+
+#toolbar-add-button:active {
+    transform: rotate(25deg);
+}
+
+.edit-container {
+    border: 1px solid var(--accentColor, rgb(49, 108, 244));
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#expiration-date-title {
+    font-weight: 500;
+    font-style: italic;
+    font-size: large;
+}
+
+.quick-actions-edit-list {
+    border: 1px solid var(--accentColor, rgb(49, 108, 244));
+    margin: 15px 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+ol,
+ul {
+    padding-left: 5px;
+}
+
+.mini-image {
+    width: 133px;
+    height: 110px;
+    border-radius: 5px;
+    padding: 0 !important;
+    margin: 1px;
+    border: 2px solid var(--accentColor, rgb(49, 108, 244));
+}
+
+.mini-image:clicked .file-selector-container {
+    border: 1px solid var(--accentColor, rgb(49, 108, 244));
+    padding: 3px;
+}
+
+
+.label-select {
+    border: 1px solid whitesmoke;
+    position: relative;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.label-select::before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid var(--accentColor, rgb(49, 108, 244));
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+
+:checked+.label-select {
+    border-color: #ddd;
+}
+
+:checked+.label-select::before {
+    content: "✓";
+    z-index: 3;
+    background-color: var(--accentColor, rgb(49, 108, 244));
+    transform: scale(1.3);
+}
+
+:checked+.label-select img {
+    transform: scale(0.75);
+    box-shadow: 0 0 5px #333;
+    z-index: -1;
+}
+
+.image-div {
+    max-width: 133px;
+    max-height: 110px;
+}
+
+.color-radio {
+    display: none;
+}
+
+.color-radio:checked+label {
+    border-bottom: 3px solid rgb(49, 108, 244);
+}
+
+.login-form-container {
+    background-color: white;
+    width: 60%;
+    border-radius: 7%;
+    padding: 25px;
+    border: 1px solid var(--accentColor, rgb(49, 108, 244));
+}
+
+.wizard-header {
+    font-size: large;
+}
+
+#select-deletion-message {
+    font-size: large;
+    color: red;
+}
+
+#quick-action-container {
+    width: 25%;
+    text-align: center;
+}
+
+#quick-action-container a:hover {
+    text-decoration: none;
+}
+
+.edit-button:hover {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.required-asterisk {
+    color: red;
+    font-size: larger;
+}
+
+.user-account-header {
+    color: rgb(49, 108, 244);
+}
+
+.tutorial-image {
+    width: 500px;
+    height: 300px;
+    border: 1px solid var(--accentColor, rgb(49, 108, 244));
+    border-radius: 10px;
+}
+
+.tutorial-text-wrapper {
+    background-color: var(--accentColor, rgb(49, 108, 244));
+    border-radius: 10px;
+    padding: 20px 25px;
+}
+
+.tutorial-text {
+    color: whitesmoke;
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+#carousel-button-container {
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 5px;
+    border-style: border-box;
+}
+
+/* media queries for responsive desing */
+@media (max-width: 700px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .item-img {
+        width: 250px;
+        height: 200px;
+        border-radius: 5px;
+        border: 10px wavy rgb(236, 23, 69);
+    }
+
+    #quick-action-container {
+        width: 45%;
+        margin-top: 0;
+    }
+
+    #quick-action-container a {
+        display: none;
+    }
+
+    .container-fluid {
+        padding: 0 !important;
+    }
+
+    #version-number {
+        display: none;
+    }
+
+    .nav-link-button {
+        margin: 3px 0;
+        padding: 0;
+        font-size: larger;
+    }
+
+    #navbarNavDropdown {
+        text-align: center;
+    }
+
+    .navbar-brand {
+        font-size: medium;
+    }
+
+    .nav-bar-toggler {
+        padding-left: 0;
+    }
+
+    #logout-container {
+        margin: 10px 5px !important;
+        margin-left: 1rem !important;
+        text-align: end;
+    }
+
+    .filter-container {
+        padding: 0 !important;
+        margin-top: 10px;
+    }
+
+    #filter-button {
+        margin-top: 8px;
+    }
+
+    .edit-container {
+        padding: 20px;
+        margin: 0;
+    }
+
+    #editing-header {
+        margin-top: 15px;
+    }
+
+    .view-recipes-column {
+        display: none;
+    }
+
+    .expired-list {
+        margin-top: 0 !important;
+    }
+
+    #login-button {
+        margin-bottom: 15px;
+    }
+
+}
+
+/* media queries for responsive desing */
+@media (max-width: 1000px) {
+
+    body {
+        padding: 30px;
+    }
+
+    .nav-link-button {
+        margin: 3px 0;
+        padding: 0;
+        font-size: larger;
+    }
+
+    #navbarNavDropdown {
+        text-align: center;
+    }
+
+    .item-img {
+        width: 200px;
+        height: 150px;
+        border-radius: 5px;
+        border: 10px wavy rgb(236, 23, 69);
+    }
+
+    #logout-container {
+        margin-top: 20px;
+        margin-left: 10em !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .item-img {
+        width: 200px;
+        height: 150px;
+        border-radius: 5px;
+        border: 10px wavy rgb(236, 23, 69);
+    }
+}
