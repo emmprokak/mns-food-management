@@ -62,7 +62,7 @@ redisClient.on('connect', function (err) {
     console.log('Connected to redis successfully');
 });
 
-const redisSecret = process.env.REDIS_SECRET || "test";
+const redisSecret = "jslkdhasbdkuwahsjklkncmnsa.wudsan,sd.wasjpopoipxxcvnz";
 
 app.use(expressSession({
     store: new RedisStore({ client: redisClient }),
@@ -70,8 +70,8 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: true,
-        httpOnly: true,
+        secure: process.env.ENVIRONMENT === "prod",
+        httpOnly: process.env.ENVIRONMENT === "prod",
         maxAge: 1000 * 60 * 60 * 24 * 7,
         expires: 1000 * 60 * 60 * 24 * 7
     }
@@ -82,9 +82,9 @@ app.use(flash());
 // redis config end
 
 const dbHost = process.env.DB_HOST || "localhost";
-const dbUser = process.env.DB_USER || "localhost";
-const dbPassword = process.env.DB_PASSWORD || "localhost";
-const dbName = process.env.DB_NAME || "localhost";
+const dbUser = process.env.DB_USER || "user";
+const dbPassword = process.env.DB_PASSWORD || "password";
+const dbName = process.env.DB_NAME || "name";
 
 const con = mysql.createConnection({
     host: dbHost,
