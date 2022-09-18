@@ -8,7 +8,7 @@ Through said application you can store recently bought food packages along with 
 
 Through the “expiring” tab, you can see all packages that expire in the next 50 days, so you can plan ahead your food consumption and minimise waste.
 
-<img width="500" alt="Screenshot 2022-09-18 at 6 06 23 PM" src="https://user-images.githubusercontent.com/89413115/190914443-9e8280bc-2bc2-453e-96ef-23b3d2b97015.png">
+<img width="900" alt="Screenshot 2022-09-18 at 6 06 23 PM" src="https://user-images.githubusercontent.com/89413115/190914443-9e8280bc-2bc2-453e-96ef-23b3d2b97015.png">
 
 All this can be found on www.mns-food-management.com. Just a create an account and get started using the user friendly application that helps you manage your home’s food inventory.
 
