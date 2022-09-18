@@ -21,7 +21,7 @@ function getCurrentURL() {
 
 function resetURL() {
     let currentUrl = window.location.href;
-    window.location.href = currentUrl.slice(0, currentUrl.indexOf(":3000/") + 5);
+    window.location.href = currentUrl.slice(0, currentUrl.indexOf(".com/") + 4);
 }
 
 function setFocusTo(elementId) {

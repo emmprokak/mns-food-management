@@ -16,17 +16,10 @@ const flash = require('connect-flash');
 const redis = require('redis');
 const connectRedis = require('connect-redis');
 const dbController = require("./public/javascript/dbController");
+const helmet = require("helmet");
 const PORT = process.env.NODE_PORT || 8000;
 
-const { prepareTagList, handleChosenTags,
-    prepareTagQuery, prepareProductTagConnectionQueries,
-    matchTagNameWithProductTagRelationShip,
-    convertListToString, formatUUID,
-    createProductPackagesQuery, getPackagesExpirationDatesList,
-    createUpdatePackagesQuery, formatCount,
-    createAddPackageQuery, isolateProductIds,
-    formatId, formatProductIdList, showCreateNewModal,
-    formatPasswordHash, formatTheme, formatUsername } = require("./public/javascript/webutils.js");
+const { formatUUID, formatId, formatPasswordHash } = require("./public/javascript/webutils.js");
 
 const ejsUtils = require("./public/javascript/ejsUtils.js")
 
@@ -40,6 +33,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
+app.use(
+    helmet({
+        contentSecurityPolicy: false,
+    })
+);
 
 
 // redis config start
@@ -62,7 +60,7 @@ redisClient.on('connect', function (err) {
     console.log('Connected to redis successfully');
 });
 
-const redisSecret = "jslkdhasbdkuwahsjklkncmnsa.wudsan,sd.wasjpopoipxxcvnz";
+const redisSecret = process.env.ENVIRONMENT === "prod" ? process.env.REDIS_SECRET : "jslkdhasbdkuwahsjklkncmnsa.wudsan,sd.wasjpopoipxxcvnz1";
 
 app.use(expressSession({
     store: new RedisStore({ client: redisClient }),
