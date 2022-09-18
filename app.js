@@ -38,6 +38,7 @@ app.use(
         contentSecurityPolicy: false,
     })
 );
+app.set("trust proxy", true);
 
 
 // redis config start

@@ -13,7 +13,7 @@ function getItemId(deleteButtonReference) {
 function getCurrentURL() {
     let completeUrl = window.location.href;
     console.log(`complete url is getCurrent is ${completeUrl} and length is ${completeUrl.length} and I cut at ${completeUrl.indexOf(":3000/") + 6}`);
-    const itemId = completeUrl.slice(completeUrl.indexOf(":3000/") + 6, completeUrl.length);
+    const itemId = completeUrl.slice(completeUrl.indexOf(".com/") + 4, completeUrl.length);
     console.log(`current url = ${completeUrl}`);
     console.log(`itemId of product to be deleted: ${itemId}`);
     document.getElementById("delete-form").action = `/delete-item/${itemId}`;
